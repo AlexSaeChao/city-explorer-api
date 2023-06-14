@@ -34,3 +34,9 @@ Estimate of time needed to complete: 1 hr
 Start time: 1717
 Finish time: 1759
 Actual time needed to complete: 42 mins
+
+Name of feature: rendering weather data to page and other functionality 
+Estimate of time needed to complete: 1 hr
+Start time: 1815
+Finish time: 2321
+Actual time needed to complete: 5 hrs 7 mins

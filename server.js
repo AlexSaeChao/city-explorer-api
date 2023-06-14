@@ -30,24 +30,20 @@ app.get('/', (request, response) => {
 
 app.get('/weather', (request, response, next) => {
   try {
-    const searchQuery = request.query.searchQuery;
-    const city = data.find((cityWeather) =>
+    let searchQuery = request.query.searchQuery;
+    let city = data.find((cityWeather) =>
       cityWeather.city_name.toLowerCase() === searchQuery.toLowerCase()
     );
 
-    if (!city) {
-      response.status(404).json({ error: 'City not found' });
-      return;
-    }
-
-    const forecastData = city.data.map((day) => {
-      const lowTemp = day.low_temp.toFixed(1);
-      const highTemp = day.high_temp.toFixed(1);
-      const description = `Low of ${lowTemp}, high of ${highTemp} with ${day.weather.description}`;
-      return new Forecast(day.valid_date, description);
+    let forecastData = city.data.map(day => {
+      let lowTemp = day.low_temp;
+      let highTemp = day.high_temp;
+      let dayOf = day.valid_date;
+      let description = `${dayOf}: low of ${lowTemp}, high of ${highTemp} with ${day.weather.description}`;
+      return new Forecast(dayOf, description);
     });
 
-    response.status(200).json(forecastData);
+    response.status(200).send(forecastData);
   } catch (error) {
     next(error);
   }
