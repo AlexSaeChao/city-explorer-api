@@ -46,3 +46,9 @@ Estimate of time needed to complete: 2 hours
 Start time: 1415
 Finish time: 1718
 Actual time needed to complete: 3hr 3mins
+
+Name of feature: add movie API
+Estimate of time needed to complete: 2 hours
+Start time: 1725
+Finish time: 2047
+Actual time needed to complete: 3 hrs 22 mins 
