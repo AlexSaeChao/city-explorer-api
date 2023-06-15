@@ -40,3 +40,9 @@ Estimate of time needed to complete: 1 hr
 Start time: 1815
 Finish time: 2321
 Actual time needed to complete: 5 hrs 7 mins
+
+Name of feature: receiving weather live data from weatherbit
+Estimate of time needed to complete: 2 hours
+Start time: 1415
+Finish time: 1718
+Actual time needed to complete: 3hr 3mins
