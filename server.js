@@ -41,6 +41,8 @@ class Forecast {
   constructor(forecastOBJ) {
     this.description = forecastOBJ.weather.description;
     this.date = forecastOBJ.datetime;
+    this.lowTemperature = forecastOBJ.low_temp;
+    this.highTemperature = forecastOBJ.high_temp;
   }
 }
 // ---
@@ -66,11 +68,7 @@ class Movie {
   constructor(movieObj) {
     this.title = movieObj.title;
     this.overview = movieObj.overview;
-    this.average_votes = movieObj.vote_average;
-    this.total_votes = movieObj.vote_count;
     this.image_url = `https://image.tmdb.org/t/p/w500${movieObj.poster_path}`;
-    this.popularity = movieObj.popularity;
-    this.released_on = movieObj.release_date;
   }
 }
 
