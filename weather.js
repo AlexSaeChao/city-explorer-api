@@ -1,4 +1,8 @@
+'use strict';
+
 const axios = require('axios');
+
+let cache = {};
 
 class Forecast {
   constructor(forecastOBJ) {
@@ -11,13 +15,26 @@ class Forecast {
 
 async function getWeather(request, response, next) {
   try {
-    const { lat, lon } = request.query;
-    const url = `http://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}`;
+    let { lat, lon } = request.query;
+    let key = `${request.query.lat}-${request.query.lon}-lat-lon-location`;
+    if (cache[key] && (Date.now() - cache[key].timestamp) < 8.64e+7) {
+console.log('cache was hit!', cache);
+response.status(200).send(cache[key].data);
 
-    const { data } = await axios.get(url);
-    const forecastToSend = data.data.map(forecastOBJ => new Forecast(forecastOBJ));
+    } else {
+      console.log('No item in cache');
 
-    response.status(200).send(forecastToSend);
+      let url = `http://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}`;
+      let { data } = await axios.get(url);
+      let forecastToSend = data.data.map(forecastOBJ => new Forecast(forecastOBJ));
+
+      cache[key] = {
+        timestamp: Date.now(),
+        data: forecastToSend,
+      }
+      response.status(200).send(forecastToSend);
+    }
+
   } catch (error) {
     next(error);
   }

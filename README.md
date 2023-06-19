@@ -58,3 +58,15 @@ Estimate of time needed to complete: 2 hours
 Start time: 1725
 Finish time: 1907
 Actual time needed to complete: 1 hrs 18 mins
+
+Name of feature: Creating cache for weather
+Estimate of time needed to complete: 2hr
+Start time: 2000
+Finish time: 2133
+Actual time needed to complete: 1 hrs 33 mins
+
+Name of feature: Creating cache for movies
+Estimate of time needed to complete: 1.5 hrs
+Start time: 2133
+Finish time: 2215
+Actual time needed to complete: 42 mins
